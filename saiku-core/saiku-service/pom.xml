@@ -75,49 +75,48 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.2</version>
-                <executions>
-                    <execution>
-                        <id>test</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <echo message="Prepare Test. Unzipping foodmart" />
-                                <unzip dest="target/test-classes/">
-                                    <fileset dir="target/">
-                                        <include name="mondrian-data*.jar" />
-                                    </fileset>
-                                </unzip>
-                                <echo message="Unzipped!" />
-                                <unzip dest="target/test/">
-                                    <fileset dir="${basedir}/../../util/">
-                                        <include name="foodmart_hsql.script.zip" />
-                                    </fileset>
-                                </unzip>
-                                <copy todir="target/test/foodmart/">
-                                    <fileset dir="${basedir}/../../util/">
-                                        <include name="FoodMart.xml" />
-                                    </fileset>
-                                </copy>
->>>>>>> tag-3.16.1
-
-								<copy todir="target/test-classes/org/saiku/" overwrite="true">
-									<fileset dir="target/test/">
-										<include name="foodmart_hsql.script" />
-									</fileset>
-								</copy>
-
-							</tasks>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+          <!-- 解压失败，屏蔽本插件
+           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.2</version>
+            <executions>
+                <execution>
+                  <id>test</id>
+                  <phase>process-resources</phase>
+                  <goals>
+                      <goal>run</goal>
+                  </goals>
+                  <configuration>
+                      <tasks>
+                          <echo message="Prepare Test. Unzipping foodmart" />
+                          <unzip dest="target/test-classes/">
+                              <fileset dir="target/">
+                                  <include name="mondrian-data*.jar" />
+                              </fileset>
+                          </unzip>
+                          <echo message="Unzipped!" />
+                          <unzip dest="target/test/">
+                              <fileset dir="${basedir}/../../util/">
+                                  <include name="foodmart_hsql.script.zip" />
+                              </fileset>
+                          </unzip>
+                          <copy todir="target/test/foodmart/">
+                              <fileset dir="${basedir}/../../util/">
+                                  <include name="FoodMart.xml" />
+                              </fileset>
+                          </copy>
+          								<copy todir="target/test-classes/org/saiku/" overwrite="true">
+          									<fileset dir="target/test/">
+          										<include name="foodmart_hsql.script" />
+          									</fileset>
+          								</copy>
+          							</tasks>
+      						</configuration>
+    					</execution>
+    				</executions>
+    			</plugin>
+    -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -137,9 +136,9 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			<!--<plugin> <groupId>net.thucydides.maven.plugins</groupId> <artifactId>maven-thucydides-plugin</artifactId> 
-				<version>0.9.229</version> <executions> <execution> <id>thucydides-reports</id> 
-				<phase>post-integration-test</phase> <goals> <goal>aggregate</goal> </goals> 
+			<!--<plugin> <groupId>net.thucydides.maven.plugins</groupId> <artifactId>maven-thucydides-plugin</artifactId>
+				<version>0.9.229</version> <executions> <execution> <id>thucydides-reports</id>
+				<phase>post-integration-test</phase> <goals> <goal>aggregate</goal> </goals>
 				</execution> </executions> </plugin> -->
 		</plugins>
 	</build>
@@ -282,7 +281,7 @@
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
 		</dependency>
-		<!--<dependency> <groupId>net.thucydides</groupId> <artifactId>thucydides-core</artifactId> 
+		<!--<dependency> <groupId>net.thucydides</groupId> <artifactId>thucydides-core</artifactId>
 			</dependency> -->
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
@@ -324,7 +323,7 @@
 			<artifactId>hamcrest-all</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--<dependency> <groupId>net.thucydides</groupId> <artifactId>thucydides-jbehave-plugin</artifactId> 
+		<!--<dependency> <groupId>net.thucydides</groupId> <artifactId>thucydides-jbehave-plugin</artifactId>
 			<scope>test</scope> </dependency> -->
 		<dependency>
 			<groupId>commons-io</groupId>
